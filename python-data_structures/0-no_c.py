@@ -3,6 +3,3 @@ def no_c(my_string):
     return my_new_string
 
 
-
-
-print(no_c("Hoxclbecrton SChool"))
