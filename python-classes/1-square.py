@@ -1,7 +1,18 @@
+"""
+This module defines a Square class that represents a square by its size.
+"""
+
 class Square:
+    """
+    This class defines a square by its size.
+
+    Attributes:
+        __size (int): The size of the square.
+    """
+    
     def __init__(self, size=0):
         """
-        Initialize a Square instance with an optional size.
+        Initializes a Square instance.
 
         Args:
             size (int, optional): The size of the square. Defaults to 0.
@@ -12,8 +23,17 @@ class Square:
         """
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
-
         if size < 0:
             raise ValueError("size must be >= 0")
-
         self.__size = size
+In this version:
+
+The module is documented with a brief description of its purpose.
+The Square class is documented with a description of its purpose and attributes.
+The __init__ method is documented with details about its purpose, arguments, and potential exceptions.
+This documentation will help you and others understand the purpose and usage of the module and class, as well as the behavior and requirements of the Square class's methods.
+
+
+
+
+
