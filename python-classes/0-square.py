@@ -1,9 +1,24 @@
-try:
-    square1 = Square(5)
-    print("square1 size:", square1._Square__size)  # Accessing private attribute directly (not recommended)
+class Square:
+    """
+    This class defines a square by its size.
     
-    square2 = Square(-2)  # This will raise a ValueError
-except ValueError as ve:
-    print("Error:", ve)
-except TypeError as te:
-    print("Error:", te)
+    Attributes:
+        size (int): The size of the square.
+    """
+    
+    def __init__(self, size=0):
+        """
+        Initializes a Square instance.
+
+        Args:
+            size (int, optional): The size of the square. Defaults to 0.
+        
+        Raises:
+            TypeError: If size is not an integer.
+            ValueError: If size is less than 0.
+        """
+        if not isinstance(size, int):
+            raise TypeError("size must be an integer")
+        if size < 0:
+            raise ValueError("size must be >= 0")
+        self.__size = size
