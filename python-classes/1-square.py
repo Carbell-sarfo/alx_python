@@ -26,14 +26,3 @@ class Square:
         if size < 0:
             raise ValueError("size must be >= 0")
         self.__size = size
-In this version:
-
-The module is documented with a brief description of its purpose.
-The Square class is documented with a description of its purpose and attributes.
-The __init__ method is documented with details about its purpose, arguments, and potential exceptions.
-This documentation will help you and others understand the purpose and usage of the module and class, as well as the behavior and requirements of the Square class's methods.
-
-
-
-
-
