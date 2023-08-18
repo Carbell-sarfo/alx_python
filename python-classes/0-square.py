@@ -1,3 +1,7 @@
+"""
+This module defines the Square class that represents a square by its size.
+"""
+
 class Square:
     """
     This class defines a square by its size.
