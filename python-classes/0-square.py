@@ -1,19 +1,9 @@
-class Square:
-    """
-    This class represents a square shape.
-
-    Attributes:
-        __size (int): Private instance attribute to store the size of the square.
-    """
-
-    def __init__(self, size):
-        """
-        Initializes a Square object with a given size.
-
-        Args:
-            size (int): The size of the square.
-
-        Note:
-            The size parameter is assigned to the private instance attribute __size.
-        """
-        self.__size = size
+try:
+    square1 = Square(5)
+    print("square1 size:", square1._Square__size)  # Accessing private attribute directly (not recommended)
+    
+    square2 = Square(-2)  # This will raise a ValueError
+except ValueError as ve:
+    print("Error:", ve)
+except TypeError as te:
+    print("Error:", te)
