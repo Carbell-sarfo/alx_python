@@ -3,6 +3,16 @@ This module defines a class BaseGeometry with a single method.
 """
 
 class BaseGeometry:
+    """
+    A base class for geometry-related operations.
+    
+    Attributes:
+        None
+
+    Methods:
+        area(self): Raises an exception indicating that 'area()' is not implemented.
+
+    """
     def area(self):
         """
         This method raises an exception indicating that 'area()' is not implemented.
