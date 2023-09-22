@@ -2,6 +2,10 @@
 This module defines Same class or inherit from.
 """
 
+"""
+is kind of class function
+"""
+
 def is_kind_of_class(obj, a_class):
     """
     Check if the given object is an instance of, or if it is an instance of a class
