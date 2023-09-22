@@ -5,7 +5,7 @@ This module defines a class BaseGeometry with a single method.
 class BaseGeometry:
     """
     A base class for geometry-related operations.
-    
+
     Attributes:
         None
 
@@ -22,7 +22,7 @@ class BaseGeometry:
         """
         raise Exception("area() is not implemented")
 
-# Test the BaseGeometry class
+# Example usage:
 if __name__ == "__main__":
     bg = BaseGeometry()
 
