@@ -1,17 +1,31 @@
 """
-This module defines a class Rectangle that inherits from BaseGeometry.
+This module defines a class BaseGeometry with methods for geometry-related operations.
 """
 
 class BaseGeometry:
+    """
+    A base class for geometry-related operations.
+
+    Attributes:
+        None
+
+    Methods:
+        area(self): Raises an exception indicating that 'area()' is not implemented.
+        integer_validator(self, name, value): Validates an integer value.
+
+    """
     def area(self):
         """
         This method raises an exception indicating that 'area()' is not implemented.
+
+        Raises:
+            Exception: Always raises an exception with the message "area() is not implemented."
         """
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
         """
-        This method validates an integer value.
+        Validate an integer value.
 
         Args:
             name (str): A string representing the name of the value.
@@ -26,43 +40,30 @@ class BaseGeometry:
         if value <= 0:
             raise ValueError(f"{name} must be greater than 0")
 
-class Rectangle(BaseGeometry):
-    """
-    This class represents a rectangle and inherits from BaseGeometry.
-    """
-    def __init__(self, width, height):
-        """
-        Initializes a Rectangle instance with the specified width and height.
-
-        Args:
-            width (int): The width of the rectangle.
-            height (int): The height of the rectangle.
-        """
-        self.__width = width
-        self.__height = height
-
-# Test the BaseGeometry class
+# Example usage:
 if __name__ == "__main__":
     bg = BaseGeometry()
 
-    # Valid integer values
-    bg.integer_validator("my_int", 12)
-    bg.integer_validator("width", 89)
+    try:
+        # Attempting to call the 'area' method, which raises an exception
+        bg.area()
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
 
     try:
-        # Invalid: 'name' is a string, not an integer
+        # Validating an integer value (no exception is raised)
+        bg.integer_validator("my_int", 12)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+
+    try:
+        # Invalid: 'value' is a string, not an integer
         bg.integer_validator("name", "John")
     except Exception as e:
         print("[{}] {}".format(e.__class__.__name__, e))
 
     try:
-        # Invalid: 'age' is less than or equal to 0
+        # Invalid: 'value' is less than or equal to 0
         bg.integer_validator("age", 0)
-    except Exception as e:
-        print("[{}] {}".format(e.__class__.__name__, e))
-
-    try:
-        # Invalid: 'distance' is less than or equal to 0
-        bg.integer_validator("distance", -4)
     except Exception as e:
         print("[{}] {}".format(e.__class__.__name__, e))
