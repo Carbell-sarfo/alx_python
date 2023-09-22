@@ -26,6 +26,21 @@ class BaseGeometry:
         if value <= 0:
             raise ValueError(f"{name} must be greater than 0")
 
+class Rectangle(BaseGeometry):
+    """
+    This class represents a rectangle and inherits from BaseGeometry.
+    """
+    def __init__(self, width, height):
+        """
+        Initializes a Rectangle instance with the specified width and height.
+
+        Args:
+            width (int): The width of the rectangle.
+            height (int): The height of the rectangle.
+        """
+        self.__width = width
+        self.__height = height
+
 # Test the BaseGeometry class
 if __name__ == "__main__":
     bg = BaseGeometry()
