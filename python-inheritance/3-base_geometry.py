@@ -1,10 +1,21 @@
 """
-This module defines a base geometry class.
+This module defines an empty class BaseGeometry.
 """
 
 class BaseGeometry:
     """
-    The BaseGeometry class is a base class for geometric shapes.
-    It doesn't have any methods or attributes at the moment.
+    An empty base class for geometry-related operations.
+    
+    Attributes:
+        None
+
+    Methods:
+        None
+
     """
     pass
+
+# Example usage:
+if __name__ == "__main__":
+    # Create an instance of the BaseGeometry class (empty class)
+    bg = BaseGeometry()
