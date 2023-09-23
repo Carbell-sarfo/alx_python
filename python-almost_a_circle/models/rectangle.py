@@ -81,19 +81,15 @@ class Rectangle(Base):
         for _ in range(self.height):
             print(" " * self.x + "#" * self.width)
 
-    def update(self, *args):
-        """ Method to update the attributes using no-keyword arguments in a specific order """
-        num_args = len(args)
-        if num_args >= 1:
-            self.id = args[0]
-        if num_args >= 2:
-            self.width = args[1]
-        if num_args >= 3:
-            self.height = args[2]
-        if num_args >= 4:
-            self.x = args[3]
-        if num_args >= 5:
-            self.y = args[4]
+    def update(self, *args, **kwargs):
+        """ Method to update the attributes using both positional and keyword arguments """
+        if args:
+            arg_names = ["id", "width", "height", "x", "y"]
+            for i, arg in enumerate(args):
+                setattr(self, arg_names[i], arg)
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
 
     def __str__(self):
         """ Custom string representation for Rectangle """
@@ -113,6 +109,6 @@ if __name__ == "__main__":
     print("---")
 
     r3 = Rectangle(1, 1)
-    r3.update(10, 20, 30, 40, 50)
+    r3.update(id=10, width=20, height=30, x=40, y=50)
     r3.display()
     print(r3)
