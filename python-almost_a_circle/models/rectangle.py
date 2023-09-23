@@ -87,9 +87,10 @@ class Rectangle(Base):
             arg_names = ["id", "width", "height", "x", "y"]
             for i, arg in enumerate(args):
                 setattr(self, arg_names[i], arg)
-        else:
+        elif kwargs:
             for key, value in kwargs.items():
-                setattr(self, key, value)
+                if hasattr(self, key):
+                    setattr(self, key, value)
 
     def __str__(self):
         """ Custom string representation for Rectangle """
