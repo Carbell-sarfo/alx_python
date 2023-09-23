@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """ Rectangle Module """
 
 from models.base import Base
@@ -7,20 +8,10 @@ class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """ Constructor for Rectangle class """
-
-        # Call the constructor of the Base class with id
         super().__init__(id)
-
-        # Validate and assign width
         self.width = width
-
-        # Validate and assign height
         self.height = height
-
-        # Validate and assign x
         self.x = x
-
-        # Validate and assign y
         self.y = y
 
     @property
@@ -78,3 +69,26 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
+
+if __name__ == "__main__":
+    try:
+        Rectangle(10, "2")
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+
+    try:
+        r = Rectangle(10, 2)
+        r.width = -10
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+
+    try:
+        r = Rectangle(10, 2)
+        r.x = {}
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+
+    try:
+        Rectangle(10, 2, 3, -1)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
