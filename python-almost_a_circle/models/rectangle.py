@@ -75,17 +75,21 @@ class Rectangle(Base):
         return self.width * self.height
 
     def display(self):
-        """ Method to display the rectangle using '#' characters """
+        """ Method to display the rectangle using '#' characters, considering x and y """
+        for _ in range(self.y):
+            print()
         for _ in range(self.height):
-            print("#" * self.width)
+            print(" " * self.x + "#" * self.width)
 
     def __str__(self):
         """ Custom string representation for Rectangle """
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
 
 if __name__ == "__main__":
-    r1 = Rectangle(4, 6, 2, 1, 12)
-    print(r1)
+    r1 = Rectangle(2, 3, 2, 2)
+    r1.display()
 
-    r2 = Rectangle(5, 5, 1)
-    print(r2)
+    print("---")
+
+    r2 = Rectangle(3, 2, 1, 0)
+    r2.display()
