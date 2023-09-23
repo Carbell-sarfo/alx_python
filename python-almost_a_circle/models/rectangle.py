@@ -8,6 +8,9 @@ class Rectangle(Base):
     """
     Rectangle class, which inherits from the Base class.
 
+    This class represents rectangles with private instance attributes for width, height, x, and y.
+    The use of private attributes with getters and setters helps protect and validate these attributes.
+
     Attributes:
         None
 
@@ -94,12 +97,3 @@ class Rectangle(Base):
             if value < 0:
                 raise ValueError("y must be >= 0")
             self.__y = value
-
-# Example usage:
-if __name__ == "__main__":
-    r = Rectangle(10, 5, 2, 2)
-    print(r.width)  # Should print 10
-    print(r.height)  # Should print 5
-    print(r.x)  # Should print 2
-    print(r.y)  # Should print 2
-    print(r.id)  # Automatically assigned id
