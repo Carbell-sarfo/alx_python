@@ -81,6 +81,20 @@ class Rectangle(Base):
         for _ in range(self.height):
             print(" " * self.x + "#" * self.width)
 
+    def update(self, *args):
+        """ Method to update the attributes using no-keyword arguments in a specific order """
+        num_args = len(args)
+        if num_args >= 1:
+            self.id = args[0]
+        if num_args >= 2:
+            self.width = args[1]
+        if num_args >= 3:
+            self.height = args[2]
+        if num_args >= 4:
+            self.x = args[3]
+        if num_args >= 5:
+            self.y = args[4]
+
     def __str__(self):
         """ Custom string representation for Rectangle """
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
@@ -88,8 +102,17 @@ class Rectangle(Base):
 if __name__ == "__main__":
     r1 = Rectangle(2, 3, 2, 2)
     r1.display()
+    print(r1)
 
     print("---")
 
     r2 = Rectangle(3, 2, 1, 0)
     r2.display()
+    print(r2)
+
+    print("---")
+
+    r3 = Rectangle(1, 1)
+    r3.update(10, 20, 30, 40, 50)
+    r3.display()
+    print(r3)
