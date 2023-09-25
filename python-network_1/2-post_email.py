@@ -8,6 +8,7 @@ with the email as a parameter, and displays the body of the response.
 
 import requests
 import sys
+from urllib.parse import urlencode
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
@@ -17,8 +18,11 @@ if __name__ == "__main__":
     url = sys.argv[1]
     email = sys.argv[2]
 
-    payload = {'email': email}
-    response = requests.post(url, data=payload)
+    # Encode the email parameter and append it to the URL
+    encoded_email = urlencode({'email': email})
+    url_with_email = f"{url}?{encoded_email}"
+
+    response = requests.post(url_with_email)
 
     print("Your email is: {}".format(email))
     print(response.text)
