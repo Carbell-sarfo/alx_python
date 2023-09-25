@@ -21,5 +21,5 @@ if __name__ == "__main__":
     if 'X-Request-Id' in response.headers:
         print(response.headers['X-Request-Id'])
     else:
-        print("Header 'X-Request-Id' not found in the response.")
+        print("Header 'X-Request-Id' not found in the HTTP header.")
         sys.exit(1)
