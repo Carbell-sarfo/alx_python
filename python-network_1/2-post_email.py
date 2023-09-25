@@ -1,28 +1,34 @@
 #!/usr/bin/python3
 """
-2-post_email.py
+6-my_github.py
 
-This script takes a URL and an email address as arguments, sends a POST request to the URL
-with the email as a parameter, and displays the body of the response.
+This script takes your GitHub username and personal access token as arguments, and uses Basic Authentication
+with the GitHub API to display your GitHub user ID.
 """
 
 import requests
 import sys
-from urllib.parse import urlencode
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
-        print("Usage: {} <URL> <email>".format(sys.argv[0]))
+        print("Usage: {} <username> <personal_access_token>".format(sys.argv[0]))
         sys.exit(1)
 
-    url = sys.argv[1]
-    email = sys.argv[2]
+    username = sys.argv[1]
+    token = sys.argv[2]
 
-    # Encode the email parameter and append it to the URL
-    encoded_email = urlencode({'email': email})
-    url_with_email = f"{url}?{encoded_email}"
+    url = "https://api.github.com/user"
 
-    response = requests.post(url_with_email)
+    # Create a Basic Authentication header with your username and personal access token
+    auth = (username, token)
 
-    print("Your email is: {}".format(email))
-    print(response.text)
+    response = requests.get(url, auth=auth)
+
+    try:
+        data = response.json()
+        if 'id' in data:
+            print(data['id'])
+        else:
+            print("None")
+    except ValueError:
+        print("None")
